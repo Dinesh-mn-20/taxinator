@@ -72,13 +72,17 @@ def validatelogin(request):
 
 def my_userprofile_page(request):
     existing_record = MyModel.objects.get(user_name=request.session['user_name'])
-    import sqlite3
-    con = sqlite3.connect("db.sqlite3")
+    import psycopg2
+    con = psycopg2.connect(database="tax_calculator_2013", user="tax_calculator_2013_user",
+                           password="aDS1K7OzypRlLa6kOcA2dz7reHR3cEGu",
+                           host="dpg-cnjc0hg21fec73ah8l30-a.oregon-postgres.render.com")
     cur = con.cursor()
     cur.execute(f"select * from history_table where email='{request.session['email']}'")
     res = cur.fetchall()
-    import sqlite3
-    con = sqlite3.connect("db.sqlite3")
+    import psycopg2
+    con = psycopg2.connect(database="tax_calculator_2013", user="tax_calculator_2013_user",
+                           password="aDS1K7OzypRlLa6kOcA2dz7reHR3cEGu",
+                           host="dpg-cnjc0hg21fec73ah8l30-a.oregon-postgres.render.com")
     cur = con.cursor()
     cur.execute(f"select * from users_QA where username='{request.session['user_name']}' and Answers!=''")
     res1 = cur.fetchall()

@@ -153,13 +153,13 @@
     </li>
       {% for i in history %}
     <li class="table-row">
-      <div class="col col-1" data-label="">{{i.id}}</div>
-      <div class="col col-2" data-label="">{{i.email}}</div>
-      <div class="col col-3" data-label="">{{i.assessment_year}}</div>
-      <div class="col col-4" data-label="">{{i.type}}</div>
-      <div class="col col-5" data-label="">{{i.net_income}}</div>
-      <div class="col col-6" data-label="">{{i.net_deduction}}</div>
-      <div class="col col-7" data-label="">{{i.tax}}</div>
+      <div class="col col-1" data-label="Job Id">{{i.id}}</div>
+      <div class="col col-2" data-label="Customer Name">{{i.email}}</div>
+      <div class="col col-3" data-label="Amount">{{i.assessment_year}}</div>
+      <div class="col col-4" data-label="Payment Status">{{i.type}}</div>
+      <div class="col col-5" data-label="Customer Name">{{i.net_income}}</div>
+      <div class="col col-6" data-label="Amount">{{i.net_deduction}}</div>
+      <div class="col col-7" data-label="Payment Status">{{i.tax}}</div>
     </li>
           {% endfor %}
 
@@ -182,7 +182,7 @@
                             {{ i.Questions }}
                         </button>
                     </h2>
-                    <div id="answer{{ i }}" class="accordion-collapse collapse" aria-labelledby="question{{ i }}" data-bs-parent="#faqAccordion">
+                    <div id="answer{{ i.id }}" class="accordion-collapse collapse" aria-labelledby="question{{ i.id }}" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
                             {{ i.Answers }}
                         </div>

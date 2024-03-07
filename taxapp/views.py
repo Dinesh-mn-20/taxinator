@@ -85,7 +85,7 @@ def cal_personal(request):
             form_data['type'] = "personal"
             form_data['email'] = request.session["email"]
 
-            response = requests.post("https://taxinator.onrender.com/myapi/calc_tax/",
+            response = requests.post("http://dineshby.pythonanywhere.com/myapi/calc_tax/",
                                      data=form_data,
                                      )
             response = response.json()

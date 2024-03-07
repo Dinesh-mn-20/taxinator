@@ -137,29 +137,32 @@
 </style>
  <div class="container">
   <h2>Tax History</h2>
-  <ul class="responsive-table">
-    <li class="table-header">
-      <div class="col col-1">Id</div>
-      <div class="col col-2">Email</div>
-      <div class="col col-3">Assessment Year</div>
-      <div class="col col-4">Type</div>
-      <div class="col col-5">Net Income</div>
-      <div class="col col-6">Net Deductions</div>
-      <div class="col col-7">Tax</div>
-    </li>
-      {% for i in history %}
-    <li class="table-row">
-      <div class="col col-1" data-label="Job Id">{{i.id}}</div>
-      <div class="col col-2" data-label="Customer Name">{{i.email}}</div>
-      <div class="col col-3" data-label="Amount">{{i.assessment_year}}</div>
-      <div class="col col-4" data-label="Payment Status">{{i.type}}</div>
-      <div class="col col-5" data-label="Customer Name">{{i.net_income}}</div>
-      <div class="col col-6" data-label="Amount">{{i.net_deduction}}</div>
-      <div class="col col-7" data-label="Payment Status">{{i.tax}}</div>
-    </li>
-          {% endfor %}
-
-  </ul>
+ <table class="table table-striped table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Email</th>
+      <th scope="col">Assessment Year</th>
+      <th scope="col">Type</th>
+      <th scope="col">Net Income</th>
+      <th scope="col">Net Deductions</th>
+      <th scope="col">Tax</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in history %}
+    <tr>
+      <td>{{ i.id }}</td>
+      <td>{{ i.email }}</td>
+      <td>{{ i.assessment_year }}</td>
+      <td>{{ i.type }}</td>
+      <td>{{ i.net_income }}</td>
+      <td>{{ i.net_deduction }}</td>
+      <td>{{ i.tax }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 </div>
     <div class="row">
 <div class="col justify-content-center">

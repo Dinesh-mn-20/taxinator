@@ -5,7 +5,7 @@ from django.contrib import messages
 
 from .forms import MyRegisterForm, MyLoginForm
 from .models import MyModel
-
+from qnaapp.models import user_QA
 
 def my_register_page(request):
     new_form = MyRegisterForm()
@@ -72,13 +72,13 @@ def validatelogin(request):
 
 def my_userprofile_page(request):
     existing_record = MyModel.objects.get(user_name=request.session['user_name'])
-    import psycopg2
-    con = psycopg2.connect(database="tax_calculator_2013", user="tax_calculator_2013_user",
-                           password="aDS1K7OzypRlLa6kOcA2dz7reHR3cEGu",
-                           host="dpg-cnjc0hg21fec73ah8l30-a.oregon-postgres.render.com")
-    cur = con.cursor()
-    cur.execute(f"select * from history_table where email='{request.session['email']}'")
-    res = cur.fetchall()
+    # import psycopg2
+    # con = psycopg2.connect(database="tax_calculator_2013", user="tax_calculator_2013_user",
+    #                        password="aDS1K7OzypRlLa6kOcA2dz7reHR3cEGu",
+    #                        host="dpg-cnjc0hg21fec73ah8l30-a.oregon-postgres.render.com")
+    # cur = con.cursor()
+    # cur.execute(f"select * from history_table where email='{request.session['email']}'")
+    # res = cur.fetchall()
     # import psycopg2
     # con = psycopg2.connect(database="tax_calculator_2013", user="tax_calculator_2013_user",
     #                        password="aDS1K7OzypRlLa6kOcA2dz7reHR3cEGu",
@@ -86,4 +86,5 @@ def my_userprofile_page(request):
     # cur = con.cursor()
     # cur.execute(f"select * from users_QA where username='{request.session['user_name']}' and Answers!=''")
     # res1 = cur.fetchall()
-    return render(request, "loginapp/userprofile.html", {"user_details" : existing_record , "history" : res, "res":"res1" })
+    res = user_QA.objects.filter(user_name=request.session['user_name']).all()
+    return render(request, "loginapp/userprofile.html", {"user_details" : existing_record , "history" : "res", "res":res })

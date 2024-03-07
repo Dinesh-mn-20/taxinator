@@ -93,6 +93,6 @@ def my_userprofile_page(request):
 
 
 def my_answering_page(request):
-    res = user_QA.objects.filter(Answers='').all()
+    res = user_QA.objects.filter(Answers=' ').all()
     return render(request, "loginapp/admins.html", {"res": res})
 

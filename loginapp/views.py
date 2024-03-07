@@ -79,11 +79,11 @@ def my_userprofile_page(request):
     cur = con.cursor()
     cur.execute(f"select * from history_table where email='{request.session['email']}'")
     res = cur.fetchall()
-    import psycopg2
-    con = psycopg2.connect(database="tax_calculator_2013", user="tax_calculator_2013_user",
-                           password="aDS1K7OzypRlLa6kOcA2dz7reHR3cEGu",
-                           host="dpg-cnjc0hg21fec73ah8l30-a.oregon-postgres.render.com")
-    cur = con.cursor()
-    cur.execute(f"select * from users_QA where username='{request.session['user_name']}' and Answers!=''")
-    res1 = cur.fetchall()
-    return render(request, "loginapp/userprofile.html", {"user_details" : existing_record , "history" : res, "res":res1 })
+    # import psycopg2
+    # con = psycopg2.connect(database="tax_calculator_2013", user="tax_calculator_2013_user",
+    #                        password="aDS1K7OzypRlLa6kOcA2dz7reHR3cEGu",
+    #                        host="dpg-cnjc0hg21fec73ah8l30-a.oregon-postgres.render.com")
+    # cur = con.cursor()
+    # cur.execute(f"select * from users_QA where username='{request.session['user_name']}' and Answers!=''")
+    # res1 = cur.fetchall()
+    return render(request, "loginapp/userprofile.html", {"user_details" : existing_record , "history" : res, "res":"res1" })

@@ -87,6 +87,6 @@ def my_userprofile_page(request):
     # cur = con.cursor()
     # cur.execute(f"select * from users_QA where username='{request.session['user_name']}' and Answers!=''")
     # res1 = cur.fetchall()
-    # history = HistoryModel.objects.filter(email=request.session['email']).all()
+    history = HistoryModel.objects.filter(email=request.session['email']).all()
     res = user_QA.objects.filter(username=request.session['user_name']).all()
     return render(request, "loginapp/userprofile.html", {"user_details" : existing_record , "history" : history, "res":res })

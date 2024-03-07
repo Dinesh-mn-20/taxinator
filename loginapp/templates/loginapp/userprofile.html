@@ -165,34 +165,36 @@
 
 <!--  </ul>-->
 <!--</div>-->
-    <div class="row">
-<div class="col justify-content-center">
-        <center><h3 class="class1">Answers</h3></center>
-        <div class="container mt-5">
-            <div class="accordion" id="faqAccordion">
-                <div class="accordion-item">
-                    {% for i, j, k, l in res %}
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="question{{ i }}">
-                        {% if i != '1' %}
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answer{{ i }}" aria-expanded="true" aria-controls="answer{{ i }}">
-                        {% else %}
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#answer{{ i }}" aria-expanded="true" aria-controls="answer{{ i }}">
-                        {% endif %}
-                            {{ k }}
-                        </button>
-                    </h2>
-                    <div id="answer{{ i }}" class="accordion-collapse collapse" aria-labelledby="question{{ i }}" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            {{ l }}
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h1>{{ history }}</h1>
+    <h1>{{ res }}</h1>
+<!--    <div class="row">-->
+<!--<div class="col justify-content-center">-->
+<!--        <center><h3 class="class1">Answers</h3></center>-->
+<!--        <div class="container mt-5">-->
+<!--            <div class="accordion" id="faqAccordion">-->
+<!--                <div class="accordion-item">-->
+<!--                    {% for i, j, k, l in res %}-->
+<!--                <div class="accordion-item">-->
+<!--                    <h2 class="accordion-header" id="question{{ i }}">-->
+<!--                        {% if i != '1' %}-->
+<!--                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answer{{ i }}" aria-expanded="true" aria-controls="answer{{ i }}">-->
+<!--                        {% else %}-->
+<!--                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#answer{{ i }}" aria-expanded="true" aria-controls="answer{{ i }}">-->
+<!--                        {% endif %}-->
+<!--                            {{ k }}-->
+<!--                        </button>-->
+<!--                    </h2>-->
+<!--                    <div id="answer{{ i }}" class="accordion-collapse collapse" aria-labelledby="question{{ i }}" data-bs-parent="#faqAccordion">-->
+<!--                        <div class="accordion-body">-->
+<!--                            {{ l }}-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                {% endfor %}-->
+<!--                </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
 {% endblock %}

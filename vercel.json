@@ -1,0 +1,12 @@
+{
+    "builds": [{
+        "src": "tax_calculator/wsgi.py",
+        "use": "@vercel/python"
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "tax_calculator/wsgi.py"
+        }
+    ]
+}

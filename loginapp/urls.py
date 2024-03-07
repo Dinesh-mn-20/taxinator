@@ -24,5 +24,5 @@ urlpatterns = [
     path('validatelogin/', validatelogin),
     path('userprofile/', my_userprofile_page),
     path('admins/', my_answering_page),
-    path('AnswerQuestion', AnswerQuestion)
+    path('AnswerQuestion/', AnswerQuestion)
 ]

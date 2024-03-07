@@ -56,21 +56,19 @@ def cal_corporate(request):
             form_data['type'] = "corporate"
             form_data['email'] = request.session["email"]
 
-            url = "https://taxinator.onrender.com/myapi/calc_tax/"
-
-            headers = CaseInsensitiveDict()
-            headers["Content-Type"] = "application/json"
-
-            data = '{"net_income":230000100,"net_deduction":20,"type":"corporate","email":"a@b.com","assessment_year":"2022-23"}'
-
-            resp = requests.post(url, headers=headers, data=data)
-            response = resp.json()
+            response = requests.post("http://taxinator.onrender.com/myapi/calc_tax/",
+                                     data=form_data,
+                                     )
+            response = response.json()
             new_response = "Tax to be paid: " + response
-            return render(request, "taxapp/popup.html", {"message": new_response})
+            messages.success(request, message=new_response)
+            return redirect("/tax/corporate/")
         else:
-            return render(request, "taxapp/popup.html", {"message": "Invalid data"})
+            messages.error(request, message="Invalid data")
+            return redirect(request.META['HTTP_REFERER'])
     else:
-         return render(request, "taxapp/popup.html", {"message": "Error"})
+        messages.error(request, message="Invalid Request")
+        return redirect(request.META['HTTP_REFERER'])
 
 
 def cal_personal(request):

@@ -62,7 +62,7 @@ def cal_corporate(request):
             response = response.json()
             new_response = "Tax to be paid: " + response
             messages.success(request, message=new_response)
-            return redirect("/tax/corporate/")s
+            return redirect("/tax/corporate/")
         else:
             messages.error(request, message="Invalid data")
             return redirect(request.META['HTTP_REFERER'])

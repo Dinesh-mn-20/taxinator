@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from models import default_QA
+from .models import default_QA
 # Create your views here.
 def my_QA_page(request):
     # import psycopg2

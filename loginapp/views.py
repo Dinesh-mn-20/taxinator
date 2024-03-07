@@ -96,3 +96,15 @@ def my_answering_page(request):
     res = user_QA.objects.filter(Answers='').all()
     return render(request, "loginapp/admins.html", {"res": res})
 
+
+def AnswerQuestion(request):
+    if request.method == "POST":
+        id_to_answer = request.POST["id"]
+        answer = request.POST["answer"]
+        count = user_QA.objects.filter(id=id_to_answer).count()
+        if count>0:
+            record = user_QA.objects.get(id=id_to_answer)
+            record.Answers = answer
+            record.save()
+            return redirect("/admins/")
+

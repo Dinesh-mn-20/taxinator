@@ -1,14 +1,15 @@
 from django.shortcuts import render, HttpResponse, redirect
-
+from models import default_QA
 # Create your views here.
 def my_QA_page(request):
-    import psycopg2
-    con = psycopg2.connect(database="tax_calculator_2013", user="tax_calculator_2013_user",
-                           password="aDS1K7OzypRlLa6kOcA2dz7reHR3cEGu",
-                           host="dpg-cnjc0hg21fec73ah8l30-a.oregon-postgres.render.com")
-    cur = con.cursor()
-    cur.execute("select * from default_QA_table")
-    res = cur.fetchall()
+    # import psycopg2
+    # con = psycopg2.connect(database="tax_calculator_2013", user="tax_calculator_2013_user",
+    #                        password="aDS1K7OzypRlLa6kOcA2dz7reHR3cEGu",
+    #                        host="dpg-cnjc0hg21fec73ah8l30-a.oregon-postgres.render.com")
+    # cur = con.cursor()
+    # cur.execute("select * from default_QA_table")
+    # res = cur.fetchall()
+    res = default_QA.objects.all()
     return render(request, 'QA.html', {'qas': res})
 
 

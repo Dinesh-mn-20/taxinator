@@ -86,5 +86,5 @@ def my_userprofile_page(request):
     # cur = con.cursor()
     # cur.execute(f"select * from users_QA where username='{request.session['user_name']}' and Answers!=''")
     # res1 = cur.fetchall()
-    res = user_QA.objects.filter(user_name=request.session['user_name']).all()
+    res = user_QA.objects.filter(username=request.session['user_name']).all()
     return render(request, "loginapp/userprofile.html", {"user_details" : existing_record , "history" : "res", "res":res })

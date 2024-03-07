@@ -56,7 +56,7 @@ def cal_corporate(request):
             form_data['type'] = "corporate"
             form_data['email'] = request.session["email"]
 
-            response = requests.post("http://taxinator.onrender.com/myapi/calc_tax/",
+            response = requests.post("http://taxinator-1.onrender.com/myapi/calc_tax/",
                                      data=form_data,
                                      )
             response = response.json()
@@ -83,7 +83,7 @@ def cal_personal(request):
             form_data['type'] = "personal"
             form_data['email'] = request.session["email"]
 
-            response = requests.post("http://taxinator.onrender.com/myapi/calc_tax/",
+            response = requests.post("http://taxinator-1.onrender.com/myapi/calc_tax/",
                                      data=form_data,
                                      )
             response = response.json()
@@ -109,7 +109,7 @@ def calculate_emi(request):
         if form_data.is_valid() and form_data.cleaned_data.get("principal") > 0 and form_data.cleaned_data.get("rate") > 0 and form_data.cleaned_data.get("tenure") > 0:
             form_data = form_data.cleaned_data
             print(form_data)
-            response = requests.post("http://taxinator.onrender.com/myapi/calc_emi/",
+            response = requests.post("http://taxinator-1.onrender.com/myapi/calc_emi/",
                                      data=form_data,
                                      )
             response = response.json()
@@ -139,7 +139,7 @@ def calculate_fd(request):
         form_data = EMIForm(request.POST)
         if form_data.is_valid() and form_data.cleaned_data.get("principal") > 0 and form_data.cleaned_data.get("rate") > 0 and form_data.cleaned_data.get("tenure") > 0:
             form_data = form_data.cleaned_data
-            response = requests.post("http://taxinator.onrender.com/myapi/calc_fd/",
+            response = requests.post("http://taxinator-1.onrender.com/myapi/calc_fd/",
                                      data=form_data,
                                      )
             response = response.json()
@@ -165,7 +165,7 @@ def calculate_rd(request):
         form_data = EMIForm(request.POST)
         if form_data.is_valid() and form_data.cleaned_data.get("principal") > 0 and form_data.cleaned_data.get("rate") > 0 and form_data.cleaned_data.get("tenure") > 0:
             form_data = form_data.cleaned_data
-            response = requests.post("http://taxinator.onrender.com/myapi/calc_rd/",
+            response = requests.post("http://taxinator-1.onrender.com/myapi/calc_rd/",
                                      data=form_data,
                                      )
             response = response.json()

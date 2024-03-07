@@ -23,7 +23,10 @@
       <td>{{ i.id }}</td>
       <td>{{ i.username }}</td>
       <td>{{ i.Questions }}</td>
-      <td>{{ i.Answers }}</td>
+      <td>
+          <input type="text" name="answer" />
+          <button type="submit" name="submit"></button>
+      </td>
     </tr>
     {% endfor %}
   </tbody>

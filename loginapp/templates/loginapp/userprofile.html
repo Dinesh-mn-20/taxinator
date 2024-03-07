@@ -175,7 +175,7 @@
                         {% else %}
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#answer{{ i.id }}" aria-expanded="true" aria-controls="answer{{ i.id }}">
                         {% endif %}
-                            {{ i.Questions }}
+                            <i> {{ i.id }}. </i> &nbsp {{ i.Questions }}
                         </button>
                     </h2>
                     <div id="answer{{ i.id }}" class="accordion-collapse collapse" aria-labelledby="question{{ i.id }}" data-bs-parent="#faqAccordion">
@@ -186,8 +186,8 @@
                 </div>
                 {% endfor %}
                 </div>
-                </div>
             </div>
+        </div>
         </div>
     </div>
 </div>

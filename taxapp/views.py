@@ -56,7 +56,7 @@ def cal_corporate(request):
             form_data['type'] = "corporate"
             form_data['email'] = request.session["email"]
 
-            response = requests.post("http://dineshby.pythonanywhere.com/myapi/calc_tax/",
+            response = requests.post("https://api-wqdq.onrender.com/myapi/calc_tax/",
                                      data=form_data,
                                      )
             response = response.json()
